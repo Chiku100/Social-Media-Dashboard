@@ -7,20 +7,32 @@
     --_Twitter: hsl(203, 89%, 53%);
     --_Instagram: hsl(37, 97%, 70%), hsl(329, 70%, 58%);
     --_YouTube: hsl(348, 97%, 39%);
-    --ToggleL: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+
     --ToggleD: hsl(230, 22%, 74%);
-    /* Dark Theme */
-    --_Very_Dark_Blue_: hsl(230, 17%, 14%);
-    --_Very_Dark_Blue_BG: hsl(232, 19%, 15%);
-    --_Dark_Desaturated_Blue_CardBG: hsl(228, 28%, 20%);
-    --_Desaturated_Blue_Text: hsl(228, 34%, 66%);
     /* Light Theme */
     --White: hsl(0, 0%, 100%);
+    --Toggle: hsl(228, 12%, 44%);
     --Very_Pale_Blue_BG_Pattern: hsl(225, 100%, 98%);
     --Light_Grayish_Blue_CardBG: hsl(227, 47%, 92%);
     --Dark_Grayish_Blue_Text: hsl(228, 12%, 44%);
+    --_Very_Dark_Blue_: hsl(230, 17%, 14%);
 }
 
+/* Dark Theme */
+[data-theme="dark"] {
+    --ToggleD: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    --Toggle: hsl(230, 22%, 74%);
+    --White: hsl(230, 17%, 14%);
+    --Very_Pale_Blue_BG_Pattern: hsl(232, 19%, 15%);
+    --Light_Grayish_Blue_CardBG: hsl(228, 28%, 20%);
+    --Dark_Grayish_Blue_Text: hsl(0, 0%, 100%);
+    --_Very_Dark_Blue_: hsl(0, 0%, 100%);
+}
+
+html.transition,
+html.transition * {
+    transition: all 1000ms;
+}
 
 * {
     box-sizing: border-box;
@@ -30,6 +42,7 @@
 }
 
 body {
+    color: var(--_Very_Dark_Blue_);
     font-family: 'Inter', sans-serif;
     background-color: var(--White);
     font-size: 14px;
@@ -42,7 +55,8 @@ body {
     width: 100%;
 }
 
-main {width: 90%;
+main {
+    width: 90%;
     display: flex;
     margin: 0 5%;
     justify-content: center;
@@ -67,14 +81,19 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-a{color:#A62349;
-    text-decoration:none;
+
+a {
+    color: #A62349;
+    text-decoration: none;
 }
-.attribution{color: #A62349;
+
+.attribution {
+    color: #A62349;
     font-style: bold;
     font-weight: 700;
     font-size: 12px;
 }
+
 .parallel {
     display: flex;
     justify-content: center;
@@ -173,9 +192,13 @@ h2 {
 }
 
 .container span {
-    color: var(--Dark_Grayish_Blue_Text);
+    color: var(--Toggle);
     text-transform: uppercase;
     letter-spacing: 5px;
+}
+
+small {
+    color: var(--Toggle);
 }
 
 p.green {
@@ -204,7 +227,7 @@ p.red {
 }
 
 button {
-    background-color: hsl(230, 22%, 74%);
+    background-color: var(--ToggleD);
     width: 2.5rem;
     height: 1.2rem;
     border-radius: 10px;
@@ -213,7 +236,7 @@ button {
 }
 
 label {
-    color: var(--Dark_Grayish_Blue_Text);
+    color: var(--Toggle);
     position: relative;
     font-weight: 700;
     display: flex;
@@ -222,12 +245,13 @@ label {
 }
 
 p {
-    color: var(--Dark_Grayish_Blue_Text);
+    color: var(--Toggle);
     font-weight: 700;
 
 }
 
 .circle {
+    /* transition: 0.5s; */
     cursor: pointer;
     position: absolute;
     width: 1rem;
@@ -235,7 +259,7 @@ p {
     right: 2px;
     height: 1rem;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--White);
 }
 
 .container:hover {
